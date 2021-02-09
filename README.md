@@ -1,1 +1,1 @@
-# Ripasso
+Esercitazione di ripasso sui concetti di Javascript.
