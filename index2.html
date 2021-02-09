@@ -1,0 +1,22 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>RIPASSO</h1>
+        <h3>Attraverso due pulsanti, cambiare il colore di un quadrato</h3><br>
+        <div id="quadrato" style="height: 100px; width: 100px; border-style: solid"></div><br><br>
+        <button id="btnr" style="background-color: red">ROSSO</button>
+        <button id="btnv" style="background-color: green">VERDE</button>
+        <script>
+            document.getElementById("btnr").addEventListener("click", () => {
+                console.log("Rosso");
+                document.getElementById("quadrato").setAttribute("style", "background-color: red; height: 100px; width: 100px; border-style: solid");
+            });
+            document.getElementById("btnv").addEventListener("click", () => {
+                console.log("Verde");
+                document.getElementById("quadrato").setAttribute("style", "background-color: green; height: 100px; width: 100px; border-style: solid");
+            });
+        </script>
+    </body>
+</html>
