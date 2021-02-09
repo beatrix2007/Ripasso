@@ -1,1 +1,1 @@
-Esercitazione di ripasso sui concetti di Javascript.
+Esercitazione di ripasso sui concetti di Javascript. Fare una pagina con un quadrato e due pulsanti sotto, uno rosso e uno verde, per cambiare il colore del quadrato.
