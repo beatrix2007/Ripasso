@@ -1,22 +1,107 @@
 <html>
-    <head>
-
-    </head>
-    <body>
-        <h1>RIPASSO</h1>
-        <h3>Attraverso due pulsanti, cambiare il colore di un quadrato</h3><br>
-        <div id="quadrato" style="height: 100px; width: 100px; border-style: solid"></div><br><br>
-        <button id="btnr" style="background-color: red">ROSSO</button>
-        <button id="btnv" style="background-color: green">VERDE</button>
-        <script>
-            document.getElementById("btnr").addEventListener("click", () => {
-                console.log("Rosso");
-                document.getElementById("quadrato").setAttribute("style", "background-color: red; height: 100px; width: 100px; border-style: solid");
-            });
-            document.getElementById("btnv").addEventListener("click", () => {
-                console.log("Verde");
-                document.getElementById("quadrato").setAttribute("style", "background-color: green; height: 100px; width: 100px; border-style: solid");
-            });
-        </script>
-    </body>
+  <head>
+    <title>ripasso</title>
+  </head>
+  <body>
+    <h1>ripasso</h1>
+    <h3>attraverso due pulsanti cambiare il colore di un quadrato</h3>
+    <br />
+    <div
+      id="div1"
+      style="
+        height: 100px;
+        width: 100px;
+        border-color: black;
+        border-style: solid;
+      "
+    ></div>
+    <button id="btnVerde">Verde</button>
+    <button id="btnRosso">Rosso</button>
+    <button id="btnBianco">Bianco</button>
+    <br><br>
+    <p>INSERISCI RGB</p>
+    <button id="meno">-</button><textarea id="r"></textarea><button id="piu">+</button><br>
+    <button id="meno1">-</button><textarea id="g"></textarea><button id="piu1">+</button><br>
+    <button id="meno2">-</button><textarea id="b"></textarea><button id="piu2">+</button><br><br>
+ 
+    <script>
+      document
+        .getElementById("btnRosso")
+        .addEventListener("click", () => {changeColor("red")});
+        document
+        .getElementById("btnVerde")
+        .addEventListener("click", () => {changeColor("green")});
+        document
+        .getElementById("btnBianco")
+        .addEventListener("click", () => {changeColor("white")});
+ 
+        document.getElementById("meno").addEventListener("click", () =>{operazione("-", "r")});
+        document.getElementById("meno1").addEventListener("click", () =>{operazione("-", "g")});
+        document.getElementById("meno2").addEventListener("click", () =>{operazione("-", "b")});
+        document.getElementById("piu").addEventListener("click", () =>{operazione("+", "r")});
+        document.getElementById("piu1").addEventListener("click", () =>{operazione("+", "g")});
+        document.getElementById("piu2").addEventListener("click", () =>{operazione("+", "b")});
+ 
+        //document.getElementById("vai").addEventListener("click", () =>{ change()});
+ 
+      var changeColor = function (c) {
+        document
+          .getElementById("div1")
+          .setAttribute(
+            "style",
+            "height: 100px;width: 100px;border-color: black;" +
+              "border-style: solid;background-color : " +
+              c
+          );
+      };
+      /*var change = function (){
+        var p = "#"+document.getElementById("r").value+document.getElementById("g").value+document.getElementById("b").value;
+        document.getElementById("div1")
+        .setAttribute(
+            "style",
+            "height: 100px;width: 100px;border-color: black;" +
+              "border-style: solid;background-color : " +
+              p
+          );
+      }*/
+      var operazione = function (segno, textbox){
+          var p = "rgb("+document.getElementById("r").value+","+document.getElementById("g").value+","+document.getElementById("b").value+")";
+          console.log(document.getElementById(textbox).value);
+          switch (segno) {
+            case "+":
+            document.getElementById(textbox).value = document.getElementById(textbox).value - (-1);
+            if(document.getElementById(textbox).value< 256){
+                document.getElementById("div1")
+              .setAttribute(
+                "style",
+                "height: 100px;width: 100px;border-color: black;" +
+                  "border-style: solid;background-color : " +
+                  p
+              );
+            }
+            else{
+              console.log("Il valore inserito non va bene");
+            }
+            
+              break;
+            case "-":
+              document.getElementById(textbox).value = document.getElementById(textbox).value -1;
+              if(document.getElementById(textbox).value<=255){
+                  document.getElementById("div1")
+              .setAttribute(
+                "style",
+                "height: 100px;width: 100px;border-color: black;" +
+                  "border-style: solid;background-color : " +
+                  p
+                  ); 
+              }
+              else{
+                console.log("Il valore inserito non va bene");
+              }
+              break;
+          }  
+      }
+    </script>
+  </body>
 </html>
+ 
